@@ -7,7 +7,7 @@ import Header from "./Components/Header";
 import Categories from "./Pages/Categories";
 import { useState } from "react";
 import Expenses from "./Pages/Expenses";
-import Budgets from "./Components/Budgets";
+import Budgets from "./Pages/Budgets";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
