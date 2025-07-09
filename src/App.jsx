@@ -6,6 +6,8 @@ import SideBar from "./Components/SideBar";
 import Header from "./Components/Header";
 import Categories from "./Pages/Categories";
 import { useState } from "react";
+import Expenses from "./Pages/Expenses";
+import Budgets from "./Components/Budgets";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -18,16 +20,18 @@ function App() {
     setIsSideBar(!isSideBar)
   }
   return (
-    <div className={`${darkMode && 'dark'}`}>
+    <div className={`${darkMode && 'dark'}  bg-gray-50 h-screen dark:bg-gray-900 dark:text-gray-100`}>
       {/* <Test /> */}
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} openSideMenu={openSideMenu}/>
       <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar}/>
-      <div className="mt-10">
+      <main className="pt-20 mx-4 lg:ml-64 z-40">
         <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Categories" element={<Categories />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/expenses" element={<Expenses/>} />
+          <Route path="/budgets" element={<Budgets/>} />
         </Routes>
-      </div>
+      </main>
     </div>
   );
 }
