@@ -12,7 +12,7 @@ function Budgets() {
         </button>
       </div>
       <div className=" flex flex-col gap-4">
-        <div className="w-full bg-gray-200 p-4 rounded-lg dark:bg-gray-800">
+        <div className="w-full bg-white p-4 rounded-lg dark:bg-gray-800">
             <span>Limit: #40,000</span>
         </div>
       </div>

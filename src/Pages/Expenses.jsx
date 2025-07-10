@@ -16,7 +16,7 @@ function Expenses() {
           <span>Filter by</span>
           <select
             name="filter"
-            className="outline-0 bg-gray-200 p-2 rounded-lg w-34 dark:bg-gray-600"
+            className="outline-0 bg-white p-2 rounded-lg w-34 dark:bg-gray-600"
           >
             <option>All</option>
             <option value="High">Category</option>
@@ -24,7 +24,7 @@ function Expenses() {
           </select>
         </div>
         <div className="">
-          <table className=" bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden lg:w-full">
+          <table className=" bg-white dark:bg-gray-800 rounded-lg overflow-hidden lg:w-full">
             <thead>
               <tr className="border-b border-gray-400 dark:border-gray-700">
                 <th className="px-4 py-2 text-left">Date</th>

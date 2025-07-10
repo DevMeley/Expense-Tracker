@@ -7,12 +7,14 @@ import RecentExpenses from "../Components/RecentExpenses";
 function Dashboard() {
   return (
     <div className="flex flex-col gap-8 lg:flex-row justify-between">
-      <div className="flex flex-col gap-16 lg:flex-3 ">
+      <div className="flex flex-col gap-8 lg:flex-3 ">
         <span className="font-bold lg:text-2xl">Dashboard</span>
+        <div className="flex flex-col gap-4">
+
         <div className="flex justify-between items-center gap-2">
-          <div className="p-4 bg-gray-200 dark:bg-gray-600 rounded-lg h-full lg:w-64 ">
+          <div className="p-4 bg-white dark:bg-gray-600 w-58 rounded-lg h-full lg:w-72 ">
             <div className="flex flex-col gap-2">
-              <span className="flex items-center gap-2 lg:gap-4 lg:text-lg">
+              <span className="flex items-center text-sm gap-2 lg:gap-4 lg:text-lg">
                 <FaMoneyBillAlt className="text-green-600 size-5 lg:size-10" />
                 Total Expenses
               </span>
@@ -22,9 +24,9 @@ function Dashboard() {
               </span>
             </div>
           </div>
-          <div className="p-4 bg-gray-200 dark:bg-gray-600 rounded-lg h-full lg:w-64">
+          <div className="p-4 bg-white dark:bg-gray-600 w-58 rounded-lg h-full lg:w-72">
             <div className="flex flex-col gap-2">
-              <span className="flex items-center gap-2 lg:gap-4 lg:text-lg">
+              <span className="flex items-center text-sm gap-2 lg:gap-4 lg:text-lg">
                 <SiActualbudget className="text-red-600 size-5 lg:size-10" />
                 Budget Limit
               </span>
@@ -36,13 +38,13 @@ function Dashboard() {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="p-4 w-full bg-gray-200 dark:bg-gray-800 rounded-lg flex flex-col gap-4">
-            <span>This Month</span>
+          <div className="p-4 w-full bg-white dark:bg-gray-800 rounded-lg flex flex-col gap-4">
+            <span className="font-bold">This Month</span>
             <AreaChartComponent />
           </div>
-          <div className="p-4 w-full bg-gray-200 dark:bg-gray-800 rounded-lg flex flex-col gap-4">
-            <span>Expenses per category</span>
-            <div className="flex items-center gap-4">
+          <div className="p-4 w-full bg-white dark:bg-gray-800 rounded-lg flex flex-col gap-4">
+            <span className="font-bold">Expenses per category</span>
+            <div className="flex flex-col items-center lg:flex-row gap-2">
               <PieChartComponent />
               <div className="">
                 <span> 🍎 Food</span>
@@ -51,7 +53,8 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div className=" flex flex-col w-full lg:flex-2 h-full bg-gray-200 dark:bg-gray-800 rounded-lg p-4 ">
+        </div>
+      <div className=" flex flex-col w-full lg:flex-2 h-full bg-white dark:bg-gray-800 rounded-lg p-4 ">
         {<RecentExpenses/>}
       </div>
     </div>

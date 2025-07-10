@@ -1,6 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
 import "./App.css";
-import Test from "./Components/Test";
 import Dashboard from "./Pages/Dashboard";
 import SideBar from "./Components/SideBar";
 import Header from "./Components/Header";
@@ -13,6 +12,8 @@ function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [isSideBar, setIsSideBar] = useState(false)
   const location = useLocation();
+
+
   const isDashboard = location.pathname === '/dashboard';
 
   const toggleDarkMode = () =>{
@@ -21,10 +22,11 @@ function App() {
   const openSideMenu = () =>{
     setIsSideBar(!isSideBar)
   }
+ 
   return (
-    <div className={`${darkMode && 'dark'}  bg-gray-50 ${isDashboard ? 'h-full' : 'min-h-screen'} dark:bg-gray-900 dark:text-gray-100 pb-6`}>
-      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} openSideMenu={openSideMenu}/>
-      <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar}/>
+    <div className={`${darkMode && 'dark'}  bg-gray-100 ${isDashboard ? 'h-full' : 'min-h-screen'} dark:bg-gray-900 dark:text-gray-100 pb-6`}>
+      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} openSideMenu={openSideMenu} />
+      <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar} />
       <main className="pt-20 mx-4 lg:ml-68 z-40">
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />

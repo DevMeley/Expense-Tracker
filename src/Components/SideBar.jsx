@@ -6,7 +6,7 @@ import { SiActualbudget } from "react-icons/si";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link } from "react-router";
 
-function SideBar({ isSideBar }) {
+function SideBar({ isSideBar, setNotificationToggle, openNotication }) {
   const menu = [
     { item: "Dashboard", icon: <MdSpaceDashboard />, link: '/dashboard'},
     { item: "Categories", icon: <BiSolidCategoryAlt />, link: "/categories" },

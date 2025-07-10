@@ -1,4 +1,4 @@
-import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -62,15 +62,14 @@ const TriangleBar = (props) => {
 function AreaChartComponent() {
   
   return (
-    <div>
-      <ResponsiveContainer width={530} height={250}>
+    <div className="w-full" style={{ maxWidth: 530 }}>
+      <ResponsiveContainer width="100%" height={200}>
         <BarChart
-     
       data={data}
       margin={{
         top: 20,
         right: 30,
-        left: 20,
+        left: 0,
         bottom: 5,
       }}
     >
@@ -82,6 +81,7 @@ function AreaChartComponent() {
           <Cell key={`cell-${index}`} fill={colors[index % 20]} />
         ))}
       </Bar>
+      <Tooltip/>
     </BarChart>
       </ResponsiveContainer>
     </div>

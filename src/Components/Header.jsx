@@ -2,10 +2,19 @@ import { TiThMenuOutline } from "react-icons/ti";
 import { FaMoon } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
+import { useState } from "react";
 
 function Header({ toggleDarkMode, darkMode, openSideMenu }) {
+  const [notificationToggle, setNotificationToggle] = useState(false)
+  
+   const openNotication = () =>{
+    setNotificationToggle(!notificationToggle)
+  }
   return (
-    <nav className="bg-white h-14 fixed z-50 left-0 right-0 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800 top-0 mb-80 pl-2 pr-2 lg:pl-7 lg:pr-7">
+    <div className="relative">
+
+    <nav className="bg-white h-14 fixed z-50 left-0 right-0 border-b border-gray-200
+     dark:border-gray-700 dark:bg-gray-800 top-0 mb-80 pl-2 pr-2 lg:pl-7 lg:pr-7">
       <div className="flex items-center justify-between gap-2 mt-2">
         <div className="flex items-center gap-2">
           <button
@@ -26,8 +35,8 @@ function Header({ toggleDarkMode, darkMode, openSideMenu }) {
           />
         </div>
         <div className="flex items-center gap-8">
-          <button>
-            <IoNotifications className="size-5"/>
+          <button onClick={openNotication}>
+            <IoNotifications className="size-5" />
           </button>
           <button onClick={toggleDarkMode}>
             {darkMode ? (
@@ -38,7 +47,13 @@ function Header({ toggleDarkMode, darkMode, openSideMenu }) {
           </button>
         </div>
       </div>
+      {notificationToggle && 
+      <div className="w-72 h-80 bg-white rounded-xs shadow-lg absolute right-0 lg:right-20 top-14 p-4 lg:h-88 lg:w-80 dark:bg-gray-700">
+        <span className="font-bold">Notification</span>
+      </div>
+      }
     </nav>
+    </div>
   );
 }
 
