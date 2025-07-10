@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import "./App.css";
 import Test from "./Components/Test";
 import Dashboard from "./Pages/Dashboard";
@@ -12,6 +12,8 @@ import Budgets from "./Pages/Budgets";
 function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [isSideBar, setIsSideBar] = useState(false)
+  const location = useLocation();
+  const isDashboard = location.pathname === '/dashboard';
 
   const toggleDarkMode = () =>{
     setDarkMode(!darkMode)
@@ -20,8 +22,7 @@ function App() {
     setIsSideBar(!isSideBar)
   }
   return (
-    <div className={`${darkMode && 'dark'}  bg-gray-50 h-screen dark:bg-gray-900 dark:text-gray-100`}>
-      {/* <Test /> */}
+    <div className={`${darkMode && 'dark'}  bg-gray-50 ${isDashboard ? 'h-full' : 'min-h-screen'} dark:bg-gray-900 dark:text-gray-100 pb-6`}>
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} openSideMenu={openSideMenu}/>
       <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar}/>
       <main className="pt-20 mx-4 lg:ml-64 z-40">

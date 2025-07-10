@@ -18,7 +18,7 @@ function SideBar({ isSideBar }) {
   ];
   return (
     <div
-      className={` fixed bg-white dark:bg-gray-800 top-0 left-0 border-r border-gray-400 w-60 h-screen mt-10 pt-10 sm:translate-x-0 transition-transform ${
+      className={` z-40 fixed bg-white dark:bg-gray-800 top-0 left-0 border-r border-gray-400 w-60 h-screen mt-10 pt-10 sm:translate-x-0 transition-transform ${
         isSideBar ? "translate-x-0" : "-translate-x-full"
       }`}
     >

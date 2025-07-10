@@ -4,7 +4,7 @@ import { MdWbSunny } from "react-icons/md";
 
 function Header({ toggleDarkMode, darkMode, openSideMenu}) {
   return (
-    <nav className="bg-white h-14 fixed z-40 left-0 right-0 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800 top-0 mb-80 pl-2 pr-2 lg:pl-7 lg:pr-7">
+    <nav className="bg-white h-14 fixed z-50 left-0 right-0 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800 top-0 mb-80 pl-2 pr-2 lg:pl-7 lg:pr-7">
       <div className="flex items-center justify-between gap-2 mt-2">
         <div className="flex items-center gap-2">
           <button onClick={openSideMenu} className=" border border-gray-400 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-500">
