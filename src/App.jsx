@@ -8,6 +8,8 @@ import Expenses from "./Pages/Expenses";
 import Budgets from "./Pages/Budgets";
 import "./App.css";
 import Home from "./Pages/Home";
+import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -16,6 +18,8 @@ function App() {
 
   const isDashboard = location.pathname === "/dashboard";
   const isHomePage = location.pathname === "/";
+  const isSignUp = location.pathname === '/signup'
+  const isLogin = location.pathname === "/login"
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -23,6 +27,9 @@ function App() {
   const openSideMenu = () => {
     setIsSideBar(!isSideBar);
   };
+
+  // hide side bar
+  const hideSideBar = isHomePage || isSignUp || isLogin
 
   return (
     <div
@@ -35,12 +42,14 @@ function App() {
         darkMode={darkMode}
         openSideMenu={openSideMenu}
       />
-      {!isHomePage && (
+      {!hideSideBar && (
         <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar} />
       )}
         <main className={`pt-20 mx-4 z-40 ${isHomePage? "lg:ml-0":'lg:ml-68'}`}>
       <Routes>
         <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/expenses" element={<Expenses />} />
