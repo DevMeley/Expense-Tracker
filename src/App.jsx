@@ -25,7 +25,7 @@ function App() {
     <div className={`${darkMode && 'dark'}  bg-gray-50 ${isDashboard ? 'h-full' : 'min-h-screen'} dark:bg-gray-900 dark:text-gray-100 pb-6`}>
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} openSideMenu={openSideMenu}/>
       <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar}/>
-      <main className="pt-20 mx-4 lg:ml-64 z-40">
+      <main className="pt-20 mx-4 lg:ml-68 z-40">
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />

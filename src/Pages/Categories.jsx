@@ -12,7 +12,7 @@ function Categories() {
         </button>
       </div>
       <div className=" flex flex-col lg:grid grid-cols-2 gap-4">
-        <div className="flex items-center justify-between bg-gray-100 p-4 h-24 rounded-lg dark:bg-gray-800">
+        <div className="flex items-center justify-between bg-gray-200 p-4 h-24 rounded-lg dark:bg-gray-800">
           <span className="text-lg">Food</span>
           <div className="flex items-center gap-4">
             <button className="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg hover:border border-gray-400">
@@ -23,7 +23,7 @@ function Categories() {
             </button>
           </div>
         </div>
-        <div className="flex items-center justify-between bg-gray-100 p-4 h-24 rounded-lg dark:bg-gray-800">
+        <div className="flex items-center justify-between bg-gray-200 p-4 h-24 rounded-lg dark:bg-gray-800">
           <span className="text-lg">Food</span>
           <div className="flex items-center gap-4">
             <button className="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg hover:border border-gray-400">
@@ -34,7 +34,7 @@ function Categories() {
             </button>
           </div>
         </div>
-        <div className="flex items-center justify-between bg-gray-100 p-4 h-24 rounded-lg dark:bg-gray-800">
+        <div className="flex items-center justify-between bg-gray-200 p-4 h-24 rounded-lg dark:bg-gray-800">
           <span className="text-lg">Food</span>
           <div className="flex items-center gap-4">
             <button className="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg hover:border border-gray-400">

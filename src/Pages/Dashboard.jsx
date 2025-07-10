@@ -2,6 +2,7 @@ import AreaChartComponent from "../Components/AreaChartComponent";
 import PieChartComponent from "../Components/PieChartComponent";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { SiActualbudget } from "react-icons/si";
+import RecentExpenses from "../Components/RecentExpenses";
 
 function Dashboard() {
   return (
@@ -16,7 +17,7 @@ function Dashboard() {
                 Total Expenses
               </span>
               <span className="text-2xl font-bold text-gray-900 dark:text-gray-200">#400,000</span>
-              <span className="text-lg font-light text-gray-500 dark:text-gray-300">
+              <span className="text-xs font-light text-gray-500 dark:text-gray-300">
                 This month
               </span>
             </div>
@@ -28,7 +29,7 @@ function Dashboard() {
                 Budget Limit
               </span>
               <span className="text-2xl font-bold text-gray-900 dark:text-gray-200">#400,000</span>
-              <span className="text-lg font-light text-gray-500 dark:text-gray-300">
+              <span className="text-xs font-light text-gray-500 dark:text-gray-300">
                 This month
               </span>
             </div>
@@ -51,7 +52,7 @@ function Dashboard() {
         </div>
       </div>
       <div className=" flex flex-col w-full lg:flex-2 h-full bg-gray-200 dark:bg-gray-800 rounded-lg p-4 ">
-        <span>Recent Expenses</span>
+        {<RecentExpenses/>}
       </div>
     </div>
   );
