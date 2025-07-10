@@ -23,13 +23,13 @@ function Expenses() {
             <option value="Medium">date</option>
           </select>
         </div>
-        <div className="">
+        <div className="text-sm">
           <table className=" bg-white dark:bg-gray-800 rounded-lg overflow-hidden lg:w-full">
             <thead>
               <tr className="border-b border-gray-400 dark:border-gray-700">
-                <th className="px-4 py-2 text-left">Date</th>
-                <th className="px-4 py-2 text-left">Category</th>
-                <th className="px-4 py-2 text-left hidden lg:table-cell">
+                <th className="px-2 py-2 text-left">Date</th>
+                <th className="px-2 py-2 text-left">Category</th>
+                <th className="px-2 py-2 text-left hidden lg:table-cell">
                   Description
                 </th>
                 <th className="px-4 py-2 text-left">Amount</th>
