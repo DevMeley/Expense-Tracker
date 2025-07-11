@@ -16,7 +16,7 @@ function SignUp({ setSignUpModal, openLoginModal }) {
           <span className="text-3xl font-bold">Welcome</span>
           <span>Provide your details to below</span>
         </div>
-        <button className="flex items-center gap-4 p-2 bg-gray-500 dark:text-black w-54 rounded-3xl hover:bg-gray-300">
+        <button className="flex items-center gap-4 p-2 hover:bg-gray-400 dark:text-black w-54 rounded-3xl bg-gray-300">
           <span className="bg-gray-100 p-1 rounded-2xl">
             <FcGoogle className="size-5" />
           </span>
