@@ -5,7 +5,7 @@ import { IoNotifications } from "react-icons/io5";
 import { useState } from "react";
 import { Link } from "react-router";
 
-function Header({ toggleDarkMode, darkMode, openSideMenu }) {
+function Header({ toggleDarkMode, darkMode, openSideMenu,  }) {
   const [notificationToggle, setNotificationToggle] = useState(false);
 
   const openNotication = () => {
