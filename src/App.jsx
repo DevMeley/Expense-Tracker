@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dashboard from "./Pages/Dashboard";
 import SideBar from "./Components/SideBar";
 import Header from "./Components/Header";
@@ -8,15 +8,16 @@ import Expenses from "./Pages/Expenses";
 import Budgets from "./Pages/Budgets";
 import "./App.css";
 import Home from "./Pages/Home";
-import SignUp from "./Pages/SignUp";
-import Login from "./Pages/Login";
+import { makeAuthenticatedRequest } from "../middleware/api";
+import { useAuth } from "../Utils/OauthContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [signupModal, setSignUpModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
-  const [profile, setProfile] = useState([])
+  const [profileData, setProfileData] = useState([]);
+  const [profile, setProfile] = useState([]);
   const location = useLocation();
 
   const isDashboard = location.pathname === "/dashboard";
@@ -36,6 +37,27 @@ function App() {
   const openLoginModal = () => {
     setLoginModal(!loginModal);
   };
+
+  const {idToken} = useAuth()
+  useEffect(()=>{
+
+
+    const fetchUserProfile = async () => {
+          if (!idToken) return;
+    try {
+      const data = await makeAuthenticatedRequest("/v1/Oauth/user", {
+        method: "GET"
+      })
+      console.log(data)
+      setProfileData(data);
+    } catch (error) {
+      console.log(error)
+    }
+
+  };
+  fetchUserProfile()
+  },[idToken])
+
   // hide side bar
   const hideSideBar = isHomePage || isSignUp || isLogin;
 
@@ -51,7 +73,7 @@ function App() {
         openSideMenu={openSideMenu}
       />
       {!hideSideBar && (
-        <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar} />
+        <SideBar openSideMenu={openSideMenu} isSideBar={isSideBar} profileData={profileData}/>
       )}
       <main
         className={`pt-20 mx-4 z-40 ${isHomePage ? "lg:ml-0" : "lg:ml-68"}`}

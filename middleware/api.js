@@ -6,7 +6,6 @@ export const makeAuthenticatedRequest = async (url, options = {}) => {
   const user = auth.currentUser;
   
   if (!user) {
-    // throw new Error('User not authenticated');
     console.log('User not authenticated')
   }
 
@@ -25,7 +24,6 @@ export const makeAuthenticatedRequest = async (url, options = {}) => {
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    // throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
     console.log(errorData.message)
   }
 
@@ -34,5 +32,5 @@ export const makeAuthenticatedRequest = async (url, options = {}) => {
     return response.json();
   }
   
-  return response.text();
+  return response.json();
 };

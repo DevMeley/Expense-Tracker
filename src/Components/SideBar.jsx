@@ -6,7 +6,7 @@ import { SiActualbudget } from "react-icons/si";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link } from "react-router";
 
-function SideBar({ isSideBar, setNotificationToggle, openNotication }) {
+function SideBar({ isSideBar, setNotificationToggle, openNotication, profileData }) {
   const menu = [
     { item: "Dashboard", icon: <MdSpaceDashboard />, link: '/dashboard'},
     { item: "Categories", icon: <BiSolidCategoryAlt />, link: "/categories" },
@@ -22,20 +22,22 @@ function SideBar({ isSideBar, setNotificationToggle, openNotication }) {
       >
       <ul className="dark:text-gray-200 mx-4 text-gray-800 text-lg font-bold flex flex-col gap-4">
         {menu.map((list) => (
-          <Link to={list.link}>
+          <Link to={list.link} key={list.item}>
             <li className="hover:bg-gray-400 p-2 rounded-lg dark:hover:text-gray-950 flex gap-2 items-center">
               {list.icon} {list.item}
             </li>
           </Link>
         ))}
       </ul>
+        {profileData.user && 
       <div className="flex items-center gap-4 mx-4 my-20">
         <img src="\assets\profile.JPG" alt="photo" className="h-8 w-8 border rounded-4xl"/>
         <div className="flex flex-col gap-2">
-          <span></span>
-          <span className="text-xs"><a href="mailto:#"></a></span>
+          <span className="text:sm font-bold">{profileData.user.name}</span>
+          <span className="text-xs"><a href={profileData.user.email}>{profileData.user.email}</a></span>
         </div>
       </div>
+        }
     </div>
   );
 }
