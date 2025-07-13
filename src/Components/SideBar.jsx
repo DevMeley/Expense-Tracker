@@ -32,8 +32,8 @@ function SideBar({ isSideBar, setNotificationToggle, openNotication }) {
       <div className="flex items-center gap-4 mx-4 my-20">
         <img src="\assets\profile.JPG" alt="photo" className="h-8 w-8 border rounded-4xl"/>
         <div className="flex flex-col gap-2">
-          <span>Ayantola Abisola</span>
-          <span className="text-xs"><a href="mailto:#">ayantolamonsurat@gmail.com</a></span>
+          <span></span>
+          <span className="text-xs"><a href="mailto:#"></a></span>
         </div>
       </div>
     </div>

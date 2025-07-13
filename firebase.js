@@ -1,14 +1,13 @@
-// firebase.js
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider} from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STOREGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID
+  apiKey: "AIzaSyC7j1pNmmPtGK9sWJlZtrctH8em9cfa174",
+  authDomain: "expense-tracker-7149f.firebaseapp.com",
+  projectId: "expense-tracker-7149f",
+  storageBucket: "expense-tracker-7149f.firebasestorage.app",
+  messagingSenderId: "856830814285",
+  appId: "1:856830814285:web:68898f94f2407709b35404"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -21,4 +20,3 @@ googleProvider.setCustomParameters({
 
 googleProvider.addScope('profile');
 googleProvider.addScope('email');
-googleProvider.addScope("profilePhoto")

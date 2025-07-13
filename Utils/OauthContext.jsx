@@ -14,20 +14,40 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [idToken, setIdToken] = useState(null);
+
+   useEffect(() => {
+    try {
+      const storedToken = localStorage.getItem("token");
+      if (
+        storedToken &&
+        storedToken !== "undefined" &&
+        storedToken !== "null"
+      ) {
+        setIdToken(storedToken);
+      }
+    } catch (error) {
+      console.error("Error loading token from localStorage:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const token = await user.getIdToken();
         setIdToken(token);
+        if (token) {
+          localStorage.setItem("token", token);
+        }
         setUser(user);
       } else {
         setUser(null);
         setIdToken(null);
       }
-      setLoading(false);
+      setIsLoading(false);
     });
 
     return unsubscribe;
@@ -35,8 +55,8 @@ export const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{user, idToken, loading}}>
-      {!loading && children}
+    <AuthContext.Provider value={{user, idToken, isLoading}}>
+      {!isLoading && children}
     </AuthContext.Provider>
   );
 };

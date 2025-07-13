@@ -1,8 +1,25 @@
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../Utils/OauthContext";
+import { signInWithPopup, signOut } from 'firebase/auth';
+import { auth, googleProvider } from '../../firebase';
 
-function Login() {
+function Login({profile, setProfile}) {
   const navigate = useNavigate();
+  const {user} = useAuth()
+
+  const handleOauthLogin = async () =>{
+    try {
+      const GoogleLogin = await signInWithPopup(auth, googleProvider)
+      console.log(GoogleLogin.user)
+      setProfile(GoogleLogin.user)
+       setTimeout(() => {
+      navigate('/dashboard');
+    }, 100)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,7 +32,7 @@ function Login() {
         <div className="flex flex-col items-center justify-center gap-4">
           <span className="text-3xl font-bold">Welcome</span>
         </div>
-        <button className="flex items-center gap-4 p-2 bg-gray-500 dark:text-black w-54 rounded-3xl hover:bg-gray-300">
+        <button onClick={handleOauthLogin} className="flex items-center gap-4 p-2 bg-gray-500 dark:text-black w-54 rounded-3xl hover:bg-gray-300">
           <span className="bg-gray-100 p-1 rounded-2xl">
             <FcGoogle className="size-5" />
           </span>

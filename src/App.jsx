@@ -16,6 +16,7 @@ function App() {
   const [isSideBar, setIsSideBar] = useState(false);
   const [signupModal, setSignUpModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [profile, setProfile] = useState([])
   const location = useLocation();
 
   const isDashboard = location.pathname === "/dashboard";
@@ -65,6 +66,8 @@ function App() {
                 setSignUpModal={setSignUpModal}
                 openLoginModal={openLoginModal}
                 loginModal={loginModal}
+                profile={profile}
+                setProfile={setProfile}
               />
             }
           />
