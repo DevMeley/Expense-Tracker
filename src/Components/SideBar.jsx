@@ -10,8 +10,8 @@ function SideBar({ isSideBar, setNotificationToggle, openNotication, profileData
   const menu = [
     { item: "Dashboard", icon: <MdSpaceDashboard />, link: '/dashboard'},
     { item: "Categories", icon: <BiSolidCategoryAlt />, link: "/categories" },
-    { item: "Expenses", icon: <FaMoneyBillAlt />, link:"/expenses" },
     { item: "Budgets", icon: <SiActualbudget />, link:"/budgets" },
+    { item: "Expenses", icon: <FaMoneyBillAlt />, link:"/expenses" },
     { item: "Settings", icon: <IoSettingsSharp />, link: "/settings"},
   ];
   return (

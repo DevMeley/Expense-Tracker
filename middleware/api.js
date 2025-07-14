@@ -21,10 +21,12 @@ export const makeAuthenticatedRequest = async (url, options = {}) => {
     ...options,
     headers
   });
+  
 
   if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    console.log(errorData.message)
+    // const errorData = await response.json().catch(() => ({}));
+    // console.log(errorData.message)
+    console.log('invalid algorithm')
   }
 
   const contentType = response.headers.get('content-type');
@@ -32,5 +34,5 @@ export const makeAuthenticatedRequest = async (url, options = {}) => {
     return response.json();
   }
   
-  return response.json();
+  return response;
 };
