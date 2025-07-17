@@ -22,8 +22,7 @@ function App() {
 
   const isDashboard = location.pathname === "/dashboard";
   const isHomePage = location.pathname === "/";
-  const isSignUp = location.pathname === "/signup";
-  const isLogin = location.pathname === "/login";
+
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -93,8 +92,6 @@ function App() {
               />
             }
           />
-          {/* <Route path="/signup" element={<SignUp />} /> */}
-          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/expenses" element={<Expenses />} />
