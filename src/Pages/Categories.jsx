@@ -20,10 +20,6 @@ function Categories() {
 
   useEffect(() => {
     const handleCategories = async () => {
-      //   const user = auth.currentUser;
-      //    if (!user) {
-      //   console.log('User not authenticated')
-      // }
       try {
         const res = await fetch(
           "https://expense-tracker-api-gu6c.onrender.com/v1/categories",

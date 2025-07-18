@@ -10,9 +10,11 @@ function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName
      if (!user) {
     console.log('User not authenticated')
   }
+
+  
   const token = await user.getIdToken();
     try {
-      const categoryData = await fetch("https://expense-tracker-api-gu6c.onrender.com/v1/categories", {
+      const categoryData = await fetch("https://expense-tracker-api-gu6c.onrender.com/v1/budgetlimit", {
         method: "POST",
         body: JSON.stringify({name}),
        headers:{

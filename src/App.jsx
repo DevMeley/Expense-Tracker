@@ -58,7 +58,7 @@ function App() {
   },[idToken])
 
   // hide side bar
-  const hideSideBar = isHomePage || isSignUp || isLogin;
+  const hideSideBar = isHomePage
 
   return (
     <div
