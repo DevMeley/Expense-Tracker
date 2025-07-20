@@ -14,7 +14,7 @@ function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName
   
   const token = await user.getIdToken();
     try {
-      const categoryData = await fetch("https://expense-tracker-api-gu6c.onrender.com/v1/budgetlimit", {
+      const res = await fetch("https://expense-tracker-api-gu6c.onrender.com/v1/categories", {
         method: "POST",
         body: JSON.stringify({name}),
        headers:{
@@ -22,7 +22,8 @@ function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName
     'Authorization': `Bearer ${token}`,
        }
       });
-      console.log(categoryData);
+      const data = await res.json()
+      console.log(data);
       console.log(typeof(name))
       setAddCategoryModal(false)
     } catch (error) {
