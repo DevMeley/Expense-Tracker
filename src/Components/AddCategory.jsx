@@ -3,7 +3,7 @@ import { makeAuthenticatedRequest } from "../../middleware/api";
 import { useAuth } from "../../Utils/OauthContext";
 import { auth } from "../../firebase";
 
-function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName }) {
+function AddCategory({ closeAddCategoryModal, setAddCategoryModal, catName, setCatName }) {
   const handleAddCategory = async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
@@ -16,7 +16,7 @@ function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName
     try {
       const res = await fetch("https://expense-tracker-api-gu6c.onrender.com/v1/categories", {
         method: "POST",
-        body: JSON.stringify({name}),
+        body: JSON.stringify({catName}),
        headers:{
         'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,
@@ -24,7 +24,7 @@ function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName
       });
       const data = await res.json()
       console.log(data);
-      console.log(typeof(name))
+      console.log(typeof(catName))
       setAddCategoryModal(false)
     } catch (error) {
       console.log(error.massage);
@@ -42,8 +42,8 @@ function AddCategory({ closeAddCategoryModal, setAddCategoryModal, name, setName
         </div>
         <form onSubmit={handleAddCategory} className="flex flex-col gap-4">
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={catName}
+            onChange={(e) => setCatName(e.target.value)}
             className="bg-gray-100 p-2 rounded-sm outline-0 dark:bg-gray-400"
             placeholder="e.g Food"
           />

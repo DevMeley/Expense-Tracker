@@ -103,9 +103,9 @@ function AddExpenses({
               {catOptions.map((options) => (
                 <option
                   className="dark:bg-gray-600 bg-gray-200"
-                  value={options.name}
+                  value={options.catName}
                 >
-                  {options.name}
+                  {options.catName}
                 </option>
               ))}
             </select>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AddCategory from "../Components/AddCategory";
 
 function Categories() {
-  const [name, setName] = useState("");
+  const [catName, setCatName] = useState("");
   const [addCategoryModal, setAddCategoryModal] = useState(false);
   const [categories, setCategories] = useState([]);
 
@@ -53,7 +53,7 @@ function Categories() {
       <div className=" flex flex-col lg:grid grid-cols-2 gap-4">
       {categories.map((cats) => (
           <div className="flex items-center justify-between bg-white p-4 h-24 rounded-lg dark:bg-gray-800">
-            <span className="text-lg">{cats.name}</span>
+            <span className="text-lg">{cats.catName}</span>
             <div className="flex items-center gap-4">
               <button className="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg hover:border border-gray-400">
                 <MdModeEditOutline className="text-blue-800" />
@@ -68,8 +68,8 @@ function Categories() {
       {addCategoryModal && (
         <AddCategory
           closeAddCategoryModal={closeAddCategoryModal}
-          name={name}
-          setName={setName}
+          catName={catName}
+          setCatName={setCatName}
           setAddCategoryModal={setAddCategoryModal}
         />
       )}
