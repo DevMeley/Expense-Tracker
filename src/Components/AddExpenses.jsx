@@ -51,7 +51,7 @@ function AddExpenses({
       );
       const data = await res.json();
       console.log(data);
-      setExpenses(data);
+      // setExpenses(data);
       setAddExpensesModal(false);
     } catch (error) {
       console.log(error);

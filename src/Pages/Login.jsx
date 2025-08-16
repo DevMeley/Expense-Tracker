@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../Utils/OauthContext";
-import { signInWithPopup, signOut } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../firebase';
 
 function Login({profile, setProfile}) {
